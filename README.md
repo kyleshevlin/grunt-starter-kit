@@ -10,6 +10,6 @@ This small repo is designed to make starting new projects or working on simple i
 4. Run `npm install`
 5. Run `grunt`
 
-This kit will compile Sass, autoprefix the CSS output, concatenate and uglify JavaScripts, and run a watch command to live reload all changes to `.scss` and `.js` files.
+This kit will compile Sass, autoprefix the CSS output, concatenate and uglify JavaScripts, and run a `watch` command to live reload all changes to `.scss` and `.js` files.
 
 Feel free to fork and tweak to your own needs.
