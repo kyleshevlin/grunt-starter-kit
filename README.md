@@ -5,7 +5,7 @@ This small repo is designed to make starting new projects or working on simple i
 ## Steps
 
 1. Clone repo
-2. Copy contents into desired directory
+2. Copy contents into desired directory. I recommend following this pattern in the terminal: `cp Grunt-Starter-Kit/* path-to-your-directory/`
 3. `cd` to directory in terminal
 4. Run `npm install`
 5. Run `grunt`
