@@ -1,34 +1,54 @@
 'use strict';
 module.exports = function(grunt) {
-  // Requires
+  // Load Grunt Tasks
   require('load-grunt-tasks')(grunt);
 
-  // Init Grunt object
+  // Initialize the Grunt object
   grunt.config.init({
     pkg: grunt.file.readJSON('package.json')
   });
 
-  // Styles
+  // Merge Style Tasks
   grunt.config.merge({
+    // Autoprefixer
     autoprefixer: {
       dist: {
         files: {
-          'dist/css/style.css': 'css/style.css'
+          'build/application.css': 'assets/stylesheets/application.css'
         }
       }
     },
 
+    // CSS Compilation
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'dist/css/application.css': [
+            'vendor/assets/stylesheets/reset.css',
+            'vendor/assets/stylesheets/normalize.css',
+            'build/application.css'
+          ]
+        }
+      }
+    },
+
+    // Compile Sass
     sass: {
       dist: {
         options: {
           style: 'expanded'
         },
         files: {
-          'css/style.css': 'scss/style.scss'
+          'assets/stylesheets/application.css': 'assets/stylesheets/base.scss'
         }
       }
     },
 
+    // LiveReload
     watch: {
       options: {
         livereload: true
@@ -43,28 +63,38 @@ module.exports = function(grunt) {
     }
   });
 
-  // JavaScript
+  // Merge Tasks for JavaScript
   grunt.config.merge({
+    // Concatenate JS Files
     concat: {
       dist: {
         options: {
           separator: ';'
         },
-        src: ['js/*.js'],
-        dest: 'js/concat/concat.js',
+        src: ['vendor/assets/javascripts/*.js', 'assets/javascripts/*.js'],
+        dest: 'build/application.js',
       }
     },
 
+    // Lint JavaScript with JSHint
+    jshint: {
+      files: {
+        src: ['assets/javascripts/*.js', 'vendor/assets/javascripts/*.js']
+      }
+    },
+
+    // Uglify JavaScript
     uglify: {
       options: {
         mangle: false
       },
       build: {
-        src: 'js/concat/concat.js',
-        dest: 'dist/js/main.js'
+        src: 'build/application.js',
+        dest: 'dist/js/application.js'
       }
     },
 
+    // LiveReload
     watch: {
       options: {
         livereload: true
@@ -79,6 +109,22 @@ module.exports = function(grunt) {
     }
   });
 
+  // Clean
+  grunt.config.merge({
+    clean: ['build']
+  });
+
+  // Local Server
+  grunt.config.merge({
+    connect: {
+      server: {
+        options: {
+          keepalive : true
+        }
+      }
+    }
+  });
+
   // Register Tasks
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'concat', 'uglify', 'watch']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'concat', 'uglify', 'watch']);
 };

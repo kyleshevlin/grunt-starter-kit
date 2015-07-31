@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAIA,IAAK;EACH,UAAU,EAAE,UAAU;;;AAGxB;;OAEQ;EACN,UAAU,EAAE,OAAO",
+"sources": ["globals/_elements.scss"],
+"names": [],
+"file": "application.css"
+}
