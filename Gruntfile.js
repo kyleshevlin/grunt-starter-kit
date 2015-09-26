@@ -28,8 +28,7 @@ module.exports = function(grunt) {
       target: {
         files: {
           'dist/css/application.css': [
-            'vendor/assets/stylesheets/reset.css',
-            'vendor/assets/stylesheets/normalize.css',
+            'vendor/assets/stylesheets/resormalize.css',
             'build/application.css'
           ]
         }
