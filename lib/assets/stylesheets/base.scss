@@ -2,11 +2,15 @@
 // Import All The Things
 //////////////////////////////
 
-// Globals
+// Setup
 @import
   'globals/variables',
   'globals/functions',
-  'globals/mixins',
+  'globals/mixins'
+;
+
+// Globals
+@import
   'globals/elements',
   'globals/typography'
 ;
@@ -14,7 +18,10 @@
 // Sections
 @import
   'sections/header',
-  'sections/footer'
+  'sections/footer',
+  'sections/container'
 ;
 
 // Blocks
+
+// Vendors

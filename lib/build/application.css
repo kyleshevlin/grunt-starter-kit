@@ -1,9 +1,15 @@
-html {
-  box-sizing: border-box;
-}
-
 *,
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
 }
