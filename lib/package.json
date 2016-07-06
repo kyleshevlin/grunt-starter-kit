@@ -1,5 +1,5 @@
 {
-  "name": "GruntSassStarterKit",
+  "name": "gruntstarterkit",
   "version": "1.0.0",
   "description": "A simple Grunt starter kit for getting projects off the ground quickly",
   "main": "Gruntfile.js",
